@@ -49,6 +49,12 @@ class RelatedRealizationBlock extends BlockBase {
 
     $build = \Drupal::entityTypeManager()->getViewBuilder('node')->viewMultiple($nodes, 'token');
 
+    $numberOfItems = count($build);
+  
+    if($numberOfItems <= 2) {
+      return;
+    }
+    
     return [
       '#theme'    => 'custom_related_realization_block',
       '#cache'    => ['max-age' => 0,],

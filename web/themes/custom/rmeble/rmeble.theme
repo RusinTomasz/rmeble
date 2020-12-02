@@ -160,9 +160,38 @@ function rmeble_preprocess_node(&$variables) {
   //   }
   // }
 
+
+
+
 }
 
+function rmeble_preprocess_node__display_view(&$variables) {
+  $block = \Drupal\block\Entity\Block::load('views_block__realization_filters_block_1');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  if(!empty(views_get_view_result('realization_filters','block_1'))) {
+    $variables['realization_filters'] = $block_content;
+  }else {
+    $variables['realization_filters'] = NULL;
+  }
+
+  $block = \Drupal\block\Entity\Block::load('views_block__realization_block_1');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  if(!empty(views_get_view_result('realization','block_1'))) {
+    $variables['realization'] = $block_content;
+  }else {
+    $variables['realization'] = NULL;
+  }
+
+}
+
+
 function rmeble_preprocess_node__realization(&$variables) {
+  $currentLanguage = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['current_language'] = $currentLanguage;
   $variables['cs_group']  = 'paragraph-gallery-'.rand(10000,20000);
   $numberOfNodes = cuntNodes('realization');
   $variables['numberOfNodes'] = $numberOfNodes;
@@ -171,7 +200,10 @@ function rmeble_preprocess_node__realization(&$variables) {
     $node = $variables['node'];
     $taxonomyId = $node->get('field_taxonomy_refrence')->target_id;
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($taxonomyId);
-    $name = $term->getName();
+    $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($term, $currentLanguage);
+
+
+    $name = $translated_term->getName();
     $variables['nodeCategory'] = $name;
 
   }

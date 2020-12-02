@@ -1,0 +1,6 @@
+name: "Custom translation menu"
+type: module
+description: "Custom translation menu module"
+core: 8.x
+package: "MyCustom"
+version: "8.x-1.1"

@@ -57,6 +57,13 @@
           }
         }
       }
+      &.language-cs {
+        .swiper-slide {
+          &::before {
+            background-image: url("../img/svg/view-gallery-cz.svg");
+          }
+        }
+      }
     }
     .realization-inside-block {
       display: flex;
@@ -93,6 +100,7 @@
 
     .image-realization-teaser,
     .image-realization-token {
+      padding: 1.5rem;
       min-height: 700px;
       background-size: cover;
       background-position: center;

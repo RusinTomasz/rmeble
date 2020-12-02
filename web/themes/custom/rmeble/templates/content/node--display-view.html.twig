@@ -95,6 +95,14 @@
 			{% if breadcrumbs %}
 				{{ breadcrumbs }}
 			{% endif %}
+			{% if node.id == 4 %}
+				{% if realization_filters %}
+					{{ realization_filters }}
+				{% endif %}
+				{% if realization %}
+					{{ realization }}
+				{% endif %}
+			{% endif %}
 			{% if content.body[0] is not empty %}
 				{{ content.body }}
 			{% endif %}
