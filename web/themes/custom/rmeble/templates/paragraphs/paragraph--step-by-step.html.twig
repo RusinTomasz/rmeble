@@ -49,66 +49,88 @@
 
 {% block paragraph %}
 	{% block content %}
-		<div class="para-step-item">
-
-			{% if  content.field_p_single_image[0] is not empty  %}
-
-
-				{% if content.field_p_boolean['#items'].value %}
-					<div class="para-image-content-wrapper para-image-content-wrapper-right">
-						<div class="para-image-content-content">
-							<h2 class="para-title">{{ content.field_p_short_text }}</h2>
-							<div class="para-body">{{ content.field_p_long_text }}</div>
+		{% if content.field_p_multi_long_text[0] is not empty or content.field_p_single_image_2[0] is not empty or content.field_p_single_image[0] is not empty or content.field_p_short_text[0] is not empty or content.field_p_long_text[0] is not empty or content.field_p_multi_long_text[0] is not empty %}
+			<div class="para-step-item">
+				{% if  content.field_p_single_image[0] is not empty  %}
+					{% if content.field_p_boolean['#items'].value %}
+						<div class="para-image-content-wrapper para-image-content-wrapper-right">
+							<div class="para-image-content-content">
+								{% if  content.field_p_short_text[0] is not empty  %}
+									<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+								{% endif %}
+								{% if  content.field_p_long_text[0] is not empty  %}
+									<div class="para-body">{{ content.field_p_long_text }}</div>
+								{% endif %}
+							</div>
+							{% if  content.field_p_single_image[0] is not empty  %}
+								<div class="para-image-content-image image-right">
+									<div class="para-single-image-wrapper">
+										<span class="para-number">{{ content.field_p_short_text_3 }}</span>
+										{{ content.field_p_single_image }}</div>
+								</div>
+							{% endif %}
 						</div>
-						<div class="para-image-content-image image-right">
-							<div class="para-single-image-wrapper">
-								<span class="para-number">{{ content.field_p_short_text_3 }}</span>
-								{{ content.field_p_single_image }}</div>
+					{% else %}
+						<div class="para-image-content-wrapper para-image-content-wrapper-left">
+							<div class="para-image-content-image image-left">
+								<div class="para-single-image-wrapper">
+									<span class="para-number">{{ content.field_p_short_text_3 }}</span>
+									{{ content.field_p_single_image }}</div>
+							</div>
+							<div class="para-image-content-content">
+								<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+								{% if  content.field_p_long_text[0] is not empty  %}
+									<div class="para-body">{{ content.field_p_long_text }}</div>
+								{% endif %}
+							</div>
 						</div>
-					</div>
+					{% endif %}
+
 				{% else %}
-					<div class="para-image-content-wrapper para-image-content-wrapper-left">
-						<div class="para-image-content-image image-left">
-							<div class="para-single-image-wrapper">
-								<span class="para-number">{{ content.field_p_short_text_3 }}</span>
-								{{ content.field_p_single_image }}</div>
+					{% if content.field_p_short_text[0] is not empty or content.field_p_long_text[0] is not empty  %}
+						<div class="container">
+							<div class="para-content-wrapper">
+								{% if  content.field_p_short_text[0] is not empty  %}
+									<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+								{% endif %}
+								{% if  content.field_p_long_text[0] is not empty  %}
+									<div class="para-body">
+										<span class="para-number">{{ content.field_p_short_text_3 }}</span>
+										{{ content.field_p_long_text }}</div>
+								{% endif %}
+							</div>
 						</div>
-						<div class="para-image-content-content">
-							<h2 class="para-title">{{ content.field_p_short_text }}</h2>
-							<div class="para-body">{{ content.field_p_long_text }}</div>
+					{% endif %}
+				{% endif %}
+				{% if content.field_p_multi_long_text[0] is not empty %}
+					<div class="container">
+						<div class="para-faq">{{ content.field_p_multi_long_text }}</div>
+					</div>
+				{% endif %}
+				{% if content.field_p_single_image_2[0] is not empty %}
+					<div class="para-image responsive-img-background">
+						{{ content.field_p_single_image_2 }}
+						<div class="container">
+							<div class="para-image-container">
+								{% if content.field_p_single_image_3[0] is not empty %}
+									<div class="para-icon-wrapper">
+										{{ content.field_p_single_image_3 }}
+									</div>
+								{% endif %}
+								{% if content.field_p_short_text_2[0] is not empty %}
+									<h3 class="para-image-title">{{ content.field_p_short_text_2 }}</h3>
+								{% endif %}
+								{% if  content.field_p_long_text_2[0] is not empty %}
+									<div class="para-image-body">{{ content.field_p_long_text_2 }}</div>
+								{% endif %}
+								{% if  content.field_p_single_link[0] is not empty %}
+									<div class="para-image-link">{{ content.field_p_single_link }}</div>
+								{% endif %}
+							</div>
 						</div>
 					</div>
 				{% endif %}
-
-			{% else %}
-				<div class="container">
-					<div class="para-content-wrapper">
-						<h2 class="para-title">{{ content.field_p_short_text }}</h2>
-						<div class="para-body">
-							<span class="para-number">{{ content.field_p_short_text_3 }}</span>
-							{{ content.field_p_long_text }}</div>
-					</div>
-				</div>
-			{% endif %}
-			<div class="container">
-				<div class="para-faq">{{ content.field_p_multi_long_text }}</div>
 			</div>
-			<div class="para-image responsive-img-background">
-				{{ content.field_p_single_image_2 }}
-				<div class="container">
-					<div class="para-image-container">
-						<div class="para-icon-wrapper">
-							{{ content.field_p_single_image_3 }}
-						</div>
-						<h3 class="para-image-title">{{ content.field_p_short_text_2 }}</h3>
-						<div class="para-image-body">{{ content.field_p_long_text_2 }}</div>
-						{% if  content.field_p_single_link[0] is not empty  %}
-							<div class="para-image-link">{{ content.field_p_single_link }}</div>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-
-		</div>
+		{% endif %}
 	{% endblock %}
 {% endblock paragraph %}
