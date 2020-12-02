@@ -1,0 +1,134 @@
+.para-step-item {
+  .para-title {
+    font-family: $montserrat;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .para-body {
+    text-align: justify;
+    position: relative;
+    .para-number {
+      position: absolute;
+      top: -80px;
+      right: 0;
+      font-family: $butlerStencil;
+      font-weight: bold;
+      font-size: 144px;
+      line-height: 173px;
+      text-transform: uppercase;
+      color: color(grayNumbers);
+      z-index: -1;
+    }
+  }
+  .faq-item {
+    border-bottom: 1px solid color(grayNumbers);
+    padding-bottom: 2.5rem;
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20px;
+      color: color(brown);
+    }
+  }
+  .para-image {
+    padding: 15rem 0;
+    picture {
+      img {
+        display: none;
+      }
+    }
+    .para-image-container {
+      max-width: 1080px;
+      margin: auto;
+      .para-icon-wrapper {
+        img {
+          margin: auto;
+        }
+      }
+      .para-image-title {
+        font-family: $montserrat;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+      .para-image-body {
+        text-align: center;
+      }
+      .para-image-link {
+        text-align: center;
+        margin-top: 3rem;
+        a {
+          font-family: $labelleaurore;
+          font-size: 24px;
+          line-height: 24px;
+          background-color: white;
+          padding: 2rem 4rem;
+          transition: all 0.4s;
+          &:hover {
+            background-color: color(brown);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .para-image-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6rem 0;
+
+    .para-image-content-image {
+      width: 50%;
+      position: relative;
+      .para-number {
+        position: absolute;
+        top: -30px;
+        font-family: $butlerStencil;
+        font-weight: bold;
+        font-size: 144px;
+        line-height: 173px;
+        text-transform: uppercase;
+        color: color(grayNumbers);
+        z-index: 1;
+      }
+      &.image-left {
+        padding-top: 7rem;
+        .para-number {
+          position: absolute;
+          right: 0;
+        }
+      }
+      &.image-right {
+        padding-top: 7rem;
+        .para-number {
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+    .para-image-content-content {
+      width: 50%;
+      max-width: 700px;
+      padding-left: 200px;
+      padding-right: 15px;
+      .para-title {
+        margin-top: 0;
+      }
+    }
+    &.para-image-content-wrapper-right {
+      justify-content: flex-end;
+      .para-image-content-content {
+        padding-right: 200px;
+        padding-left: 15px;
+      }
+    }
+  }
+}

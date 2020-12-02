@@ -1,0 +1,27 @@
+rmeble.small:
+  label: small
+  mediaQuery: "(min-width: 0px)"
+  weight: 0
+  multipliers:
+    - 1x
+
+rmeble.medium:
+  label: medium
+  mediaQuery: "(min-width: 575px)"
+  weight: 0
+  multipliers:
+    - 1x
+
+roletyaluprof.xmedium:
+  label: xmedium
+  mediaQuery: "(min-width: 992px)"
+  weight: 1
+  multipliers:
+    - 1x
+
+rmeble.large:
+  label: large
+  mediaQuery: "(min-width: 1200px)"
+  weight: 2
+  multipliers:
+    - 1x

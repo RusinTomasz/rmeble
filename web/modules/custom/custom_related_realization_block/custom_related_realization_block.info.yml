@@ -1,0 +1,6 @@
+name: "Custom related realizations block module"
+type: module
+description: "Custom related realizations block module"
+core: 8.x
+package: "MyCustom"
+version: "8.x-1.1"

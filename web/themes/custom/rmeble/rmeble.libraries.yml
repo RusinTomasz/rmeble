@@ -1,0 +1,72 @@
+# page libraries
+
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      css/rmeble.css: {}
+      css/responsive-style.css: {}
+global-scripts:
+  js:
+    js/rmeble-main-script.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+swiper:
+  css:
+    theme:
+      css/swiper/swiper.min.css: {}
+  js:
+    js/swiper/swiper.min.js: {}
+    js/swiper/swiper.config.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+aos:
+  css:
+    theme:
+      css/aos/aos.min.css: {}
+  js:
+    js/aos/aos.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+mobile-menu:
+  css:
+    theme:
+      css/components/mobileMenu.min.css: {}
+  js:
+    js/mobileMenu.min.js: {}
+searchPage:
+  js:
+    js/searchPage/customSearch.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+responsiveImage:
+  js:
+    js/responsiveImage/responsiveBackgroundImage.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+colorbox_js:
+  js:
+    js/cs-colorobox.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery.once
+    - colorbox/colorbox
+    - colorbox/example3
+isotope:
+  js:
+    js/isotope/isotope.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery.once
+    - colorbox/colorbox
+    - colorbox/example3

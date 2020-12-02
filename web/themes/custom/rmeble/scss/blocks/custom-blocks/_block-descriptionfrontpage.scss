@@ -1,0 +1,68 @@
+.block--id--descriptionfrontpage {
+  .descriptionblock-image {
+    padding: 6rem 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &.hide-mobile {
+      @include md {
+        background-image: none !important;
+        padding: 0;
+      }
+    }
+    .para {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      @include xl {
+        margin-top: 0;
+      }
+      .para-title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+        @include md {
+          font-size: 21px;
+          line-height: 25px;
+          text-align: center;
+        }
+      }
+      .para-description {
+        text-align: justify;
+        @include md {
+          text-align: center;
+        }
+      }
+      .para-link-wrapper {
+        @include md {
+          text-align: center;
+        }
+        a {
+          border: 1px solid color(grayNumbers);
+          padding: 1rem 2rem;
+          transition: all 0.4s;
+          margin-top: 1rem;
+          &:hover {
+            background-color: color(brown);
+            border: 1px solid color(brown);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .para-image-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include xl {
+      order: -1;
+    }
+  }
+  .swiper-descriptionfrontpage-images {
+    overflow: hidden;
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

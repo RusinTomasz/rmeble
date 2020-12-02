@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "montserrat";
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.eot");
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-medium-webfont.svg#montserratmedium")
+      format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-regular-webfont");
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-regular-webfont?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-regular-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-regular-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-regular-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat/montserrat-regular-webfont.svg#montserratregular")
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.eot");
+  src: url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/montserrat/montserrat-light-webfont.svg#montserratlight")
+      format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "labelleaurore";
+  src: url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.eot");
+  src: url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/la-belle-aurore/labelleaurore-regular-webfont.svg#la_belle_auroreregular")
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "butler";
+  src: url($site_theme_dir + "fonts/butler/butler_bold-webfont.eot");
+  src: url($site_theme_dir + "fonts/butler/butler_bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/butler/butler_bold-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/butler/butler_bold-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/butler/butler_bold-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/butler/butler_bold-webfont.svg#butlerbold")
+      format("svg");
+  font-weight: 600;
+  font-style: bold;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "butler-stencil";
+  src: url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.eot");
+  src: url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.woff2")
+      format("woff2"),
+    url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.woff")
+      format("woff"),
+    url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.ttf")
+      format("truetype"),
+    url($site_theme_dir + "fonts/butler-stencil/butler_bold_stencil-webfont.svg#butler_stencilbold")
+      format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}

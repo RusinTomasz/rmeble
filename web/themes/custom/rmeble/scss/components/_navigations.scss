@@ -1,0 +1,178 @@
+.main-header-components {
+  justify-content: flex-end;
+  @include lg {
+    display: none;
+  }
+  .main-menu.nav {
+    margin-right: 5rem;
+    .menu {
+      margin: 0;
+      &.menu-level--0 {
+        display: flex;
+        margin: 0;
+        .menu-item {
+          padding: 0;
+          list-style: none;
+          span {
+            display: block;
+            font-family: $montserrat;
+            font-weight: 400;
+            color: color(black);
+            cursor: default;
+          }
+          a,
+          span {
+            padding: 3rem 2rem;
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 20px;
+            transition: all 0.4s;
+            letter-spacing: 0.2em;
+            font-weight: 400;
+            @include xl {
+              font-size: 14px;
+              padding: 3rem 1rem;
+            }
+            &:hover {
+              color: color(brown);
+            }
+          }
+          a {
+            &.is-active {
+              color: color(brown);
+            }
+          }
+          &.menu-item--expanded {
+            position: relative;
+            &:hover {
+              .menu-level--1 {
+                background-color: white;
+                display: block;
+                animation-name: menu-hover;
+                animation-duration: 0.4s;
+                animation-fill-mode: forwards;
+              }
+            }
+            .menu-level--1 {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              z-index: 99;
+              background-color: transparent;
+              min-width: 260px;
+              display: none;
+              .menu-item {
+                &:nth-last-child(1),
+                &:nth-last-child(2) {
+                  display: block;
+                }
+                a {
+                  color: color(black);
+                  font-size: 14px;
+                  line-height: 17px;
+                  font-family: $montserrat;
+                  width: 100%;
+                  padding: 2rem 2rem;
+                  border-bottom: 1px solid color(gray);
+                  transition: all 0.4s;
+                  font-weight: 400;
+                  @include xl {
+                    font-size: 12px;
+                    padding: 1.5rem 1rem;
+                  }
+                  &.is-active {
+                    color: color(brown);
+                  }
+                  &:hover {
+                    color: color(brown);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+  @include lg {
+    display: block;
+  }
+  .menu {
+    .menu-item {
+      a.is-active {
+        color: color(brown);
+      }
+      a,
+      span {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        &:focus {
+          color: color(brown);
+        }
+      }
+      span.is-active,
+      span {
+        user-select: none;
+      }
+    }
+  }
+  .language-switcher {
+    margin-top: 1rem;
+    .current-language {
+      display: none;
+    }
+    .language-label-text {
+      padding: 1rem 0 1rem 1.5rem;
+      text-transform: none;
+      display: block;
+      position: relative;
+      color: color(black);
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 300;
+      width: 100%;
+      transition: all 0.4s;
+    }
+    .language-switcher-language-url {
+      width: 100%;
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+      }
+      .language-link {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 300;
+        padding: 0 0 1rem 1.5rem;
+        text-transform: uppercase;
+      }
+      .is-active {
+        display: block;
+        color: color(brown);
+      }
+    }
+  }
+}
+
+@keyframes menu-hover {
+  from {
+    top: 90%;
+    opacity: 0;
+    height: auto;
+  }
+  to {
+    top: 100%;
+    opacity: 1;
+    height: auto;
+  }
+}

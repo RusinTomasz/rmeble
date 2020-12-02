@@ -1,0 +1,58 @@
+$labelleaurore: "labelleaurore", sans-serif;
+$montserrat: "montserrat", sans-serif;
+$butlerStencil: "butler-stencil", sans-serif;
+$butler: "butler", sans-serif;
+
+html {
+  font-size: 10px;
+  font-family: $montserrat;
+}
+
+body,
+p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 32px;
+  color: color(black);
+  @include md {
+    font-size: 13px;
+    line-height: 21px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $butler;
+  font-weight: 600;
+  color: color(black);
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 58px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 39px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  font-family: $montserrat;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+a {
+  font-family: $montserrat;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: color(black);
+  cursor: pointer;
+}

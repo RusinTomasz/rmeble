@@ -1,0 +1,150 @@
+.node--type-system {
+  &.node--view-mode-teaser {
+    .system-flex-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 7rem 3rem 7rem 8rem;
+      background-color: white;
+      margin-top: 3rem;
+      @include md {
+        padding: 4rem 1.5rem;
+      }
+      .system-image {
+        width: 20%;
+        @include lg {
+          width: 50%;
+        }
+        @include md {
+          width: 100%;
+        }
+        img {
+          @include md {
+            margin: auto;
+          }
+        }
+      }
+      .system-title-pros {
+        width: 30%;
+        @include lg {
+          width: 50%;
+          display: flex;
+          align-items: center;
+        }
+        @include md {
+          width: 100%;
+        }
+        .system-title-pros-wrapper {
+          @include md {
+            width: 100%;
+          }
+        }
+        .system-title-wrapper {
+          @include md {
+            margin-top: 3rem;
+          }
+          .system-title,
+          .system-subtitle {
+            margin: 0;
+            @include md {
+              text-align: center;
+            }
+          }
+          .system-title {
+            font-family: $montserrat;
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 24px;
+          }
+          .system-subtitle {
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+        .system-pros-list {
+          padding: 0;
+          margin: 2rem 0 0;
+          .system-pros-list-item {
+            list-style: none;
+            font-size: 14px;
+            line-height: 34px;
+            @include customListitem();
+          }
+        }
+      }
+      .system-parameters {
+        width: 35%;
+        margin-top: 1rem;
+        @include lg {
+          width: 50%;
+          margin-top: 3rem;
+        }
+        @include md {
+          width: 100%;
+          margin-top: 2rem;
+        }
+        .system-parameter {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          @include md {
+            justify-content: flex-start;
+          }
+          .system-parameter-label,
+          .system-parameter-value {
+            font-size: 14px;
+            line-height: 18px;
+          }
+          .system-parameter-label {
+            @include md {
+              width: 50%;
+              padding-right: 1.5rem;
+            }
+          }
+          .system-parameter-value {
+            font-weight: 500;
+            @include md {
+              width: 50%;
+            }
+          }
+        }
+      }
+      .system-file {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @include lg {
+          width: 50%;
+          justify-content: center;
+          margin-top: 3rem;
+        }
+        @include md {
+          width: 100%;
+          justify-content: flex-start;
+          margin-top: 2rem;
+        }
+        .download-file-link-system-teaser {
+          padding: 3.5rem 1.2rem 1rem;
+          background-color: #ef4140;
+          background-image: url("../img/svg/download-white.svg");
+          background-repeat: no-repeat;
+          background-size: 2.5rem;
+          background-position: 50% 0.9rem;
+          color: white;
+          font-size: 16px;
+          line-height: 16px;
+          transition: all 0.4s;
+          &:hover {
+            background-color: darken(#ef4140, 10%);
+          }
+        }
+      }
+      .system-file,
+      .system-parameters,
+      .system-title-pros,
+      .system-image {
+        padding: 0 1.5rem;
+      }
+    }
+  }
+}

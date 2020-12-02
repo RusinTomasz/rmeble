@@ -1,0 +1,147 @@
+.block--id--aboutfrontpage {
+  display: flex;
+  flex-wrap: wrap;
+  @include md {
+    margin: 3rem 0;
+  }
+  .block-content-wrapper {
+    max-width: 700px;
+    width: 50%;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include lg {
+      width: 65%;
+    }
+    @include md {
+      width: 100%;
+      padding-right: 15px;
+    }
+    .block-content {
+      .block-title {
+        font-size: 32px;
+        line-height: 39px;
+        font-weight: 400;
+        font-family: $montserrat;
+        letter-spacing: 0.1em;
+        margin: 0;
+        @include md {
+          text-align: center;
+          font-size: 24px;
+          line-height: 29px;
+        }
+      }
+      .block-subtitle {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: color(grayDark);
+        margin-bottom: 3rem;
+        @include md {
+          text-align: center;
+          font-size: 11px;
+          line-height: 13px;
+          margin-bottom: 2rem;
+        }
+      }
+      .field-body {
+        text-align: justify;
+        margin-bottom: 5rem;
+        @include md {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        @include sm {
+          margin-bottom: 2rem;
+        }
+      }
+      .block-icons-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        @include sm {
+          justify-content: center;
+        }
+        .icon-item {
+          margin: 1.5rem;
+          @include xl {
+            margin: 1.5rem 0.7rem;
+          }
+          img {
+            margin: auto;
+            @include xl {
+              width: 80px;
+            }
+          }
+          .icon-title {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 4rem;
+            @include sm {
+              font-size: 11px;
+              line-height: 13px;
+              margin-top: 2rem;
+            }
+          }
+          @include sm {
+            &:not(:first-child) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .block-image-wrapper {
+    width: 50%;
+    min-height: 960px;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include lg {
+      width: 35%;
+    }
+    @include md {
+      display: none;
+    }
+    .block-image-content {
+      text-align: center;
+      .block-image-title {
+        font-weight: 400;
+        font-family: $montserrat;
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        @include lg {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+      .block-year {
+        font-size: 144px;
+        line-height: 173px;
+        text-transform: uppercase;
+        font-family: $butlerStencil;
+        margin: 0;
+        color: white;
+        @include lg {
+          font-size: 100px;
+          line-height: 143px;
+        }
+      }
+    }
+  }
+}

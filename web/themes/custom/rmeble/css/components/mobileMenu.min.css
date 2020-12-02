@@ -1,0 +1,178 @@
+.mobile-logo {
+  display: none;
+  background: url(mobile-logo.svg) center no-repeat;
+  height: 50px;
+  background-size: 15rem;
+}
+.mobile-nav.active .mobile-logo {
+  position: absolute;
+  top: 0.5rem;
+  width: 175px;
+  display: inline-block;
+}
+.mobile-nav {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  background: rgba(#000, 0.8);
+  overflow: hidden;
+  transition: all 0.5s ease-out, background 1s ease-out;
+  transition-delay: 0.2s;
+  z-index: 999;
+}
+.mobile-nav.active,
+.nav-hamburger {
+  background-color: #fff;
+  right: 0;
+  z-index: 999;
+}
+.mobile-nav.active {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  top: 0;
+  transition: all 0.3s ease-in, background 0.5s ease-in;
+  transition-delay: 50ms;
+}
+.mobile-nav.active .menu {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding-left: 1.5rem;
+  right: 0;
+}
+.mobile-nav > .menu {
+  position: relative;
+  display: block;
+  padding: 0 1.5rem;
+  list-style: none;
+}
+.mobile-nav .menu .menu-item {
+  margin-top: 5px;
+  transform: scale(1.15) translateY(-30px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+    opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+.mobile-nav.active .menu .menu-item {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+.mobile-nav .menu .menu-item--expanded {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.mobile-nav .menu .menu-item a,
+.mobile-nav .menu .menu-item span {
+  display: block;
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 2.35;
+  font-weight: 200;
+  width: 100%;
+  transition: all 0.4s;
+  border-bottom: 1px solid rgba(200, 199, 199, 0.7);
+}
+.mobile-nav .menu .menu .menu-item a,
+.mobile-nav .menu .menu .menu-item span {
+  font-size: 16px;
+}
+.mobile-nav .menu .menu .menu .menu-item a,
+.mobile-nav .menu .menu .menu .menu-item span {
+  font-size: 14px;
+}
+.mobile-nav .menu .menu-item--expanded a,
+.mobile-nav .menu .menu-item--expanded span {
+  display: block;
+  width: calc(100% - 40px);
+}
+.mobile-nav .menu .menu-item--expanded .menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  height: auto;
+}
+.nav-btt {
+  height: 35px;
+  width: 40px;
+  position: relative;
+  border: none;
+}
+.nav-hamburger {
+  position: absolute;
+  display: inline-block;
+  height: 43px;
+  width: 50px;
+  cursor: pointer;
+  transform: rotate(0);
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+}
+.mobile-nav > .menu {
+  font-size: 26px;
+  margin: 6rem 0 0;
+}
+.mobile-nav > .menu .menu {
+  margin: 0;
+}
+.mobile-nav.active .btmbar,
+.mobile-nav.active .topbar {
+  transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  transition-delay: 0.2s;
+}
+.mobile-nav.active .topbar {
+  transform: translateY(4px) rotate(135deg);
+}
+.mobile-nav.active .btmbar {
+  transform: translateY(2px) rotate(-135deg);
+}
+.burger-inner {
+  width: 18px;
+  height: 8px;
+  position: relative;
+  display: block;
+  margin: -4px auto 0;
+  top: 50%;
+}
+.nav-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  transform: rotate(-45deg) translate(8%, -80%);
+}
+.nav-inner.active {
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+.btmbar,
+.topbar {
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: relative;
+  background: #121212;
+  transition: all 0.3s;
+  transition-delay: 0s;
+}
+.topbar {
+  transform: translateY(0) rotate(0);
+}
+.btmbar {
+  transform: translateY(6px) rotate(0);
+}

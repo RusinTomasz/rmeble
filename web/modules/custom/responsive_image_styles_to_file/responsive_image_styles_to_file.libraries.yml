@@ -1,0 +1,5 @@
+responsive_image_styles_to_file:
+  version: 1.x
+  css:
+    theme:
+      css/customadmin.css: {}

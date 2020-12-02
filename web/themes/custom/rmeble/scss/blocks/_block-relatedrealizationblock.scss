@@ -1,0 +1,54 @@
+#block-relatedrealizationblock {
+  margin-top: 7rem;
+  .block-title {
+    font-family: $montserrat;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26px;
+    padding-top: 4.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 30px;
+      background-color: color(black);
+    }
+  }
+  .related-realizations-swiper {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 4rem;
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: auto;
+      left: auto;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3rem;
+      height: 3rem;
+      background-size: 2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      &:after {
+        content: "";
+        display: none;
+      }
+    }
+    .swiper-button-prev {
+      left: calc(50% - 3rem);
+      background-image: url("../img/svg/arrow-gray-left.svg");
+    }
+    .swiper-button-next {
+      left: calc(50% + 3rem);
+      background-image: url("../img/svg/arrow-gray-right.svg");
+    }
+  }
+}

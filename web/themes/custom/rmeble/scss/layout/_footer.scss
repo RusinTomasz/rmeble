@@ -1,0 +1,131 @@
+.main-footer {
+  padding: 7rem 0;
+  @include md {
+    padding: 4rem 0;
+  }
+  .main-footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .footer-logo-wrapper,
+    .footer-menu-content {
+      width: 100%;
+    }
+    .footer-logo-wrapper {
+      img {
+        margin: auto;
+      }
+    }
+    .footer-menu-first,
+    .footer-menu-second {
+      .menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .menu-item {
+          padding: 0;
+        }
+      }
+    }
+    .footer-menu-first {
+      margin-top: 2.5rem;
+      .menu {
+        .menu-item:not(:last-child) {
+          position: relative;
+          &::after {
+            content: "/";
+            margin: 0 1.2rem 0 1rem;
+            @include md {
+              margin: 0 0.5rem 0 0.2rem;
+            }
+          }
+        }
+        .menu-item {
+          a {
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            transition: all 0.4s;
+            @include md {
+              font-size: 13px;
+              line-height: 16px;
+            }
+            &:hover {
+              color: color(brown);
+            }
+          }
+        }
+      }
+    }
+    .footer-menu-second {
+      margin-top: 1.5rem;
+      .menu {
+        .menu-item:not(:last-child) {
+          position: relative;
+          &::after {
+            content: "|";
+            margin: 0 1.2rem 0 1rem;
+            color: color(gray);
+            @include md {
+              margin: 0 0.5rem 0 0.2rem;
+            }
+          }
+        }
+        .menu-item {
+          a {
+            font-weight: 300;
+            font-size: 11px;
+            line-height: 13px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: color(gray);
+          }
+        }
+      }
+    }
+    .footer-social {
+      margin-top: 2rem;
+      .footer-social-title {
+        font-size: 24px;
+        line-height: 44px;
+        font-family: $labelleaurore;
+        margin: 0 0 1rem 0;
+        text-align: center;
+        @include md {
+          font-size: 18px;
+          line-height: 33px;
+        }
+      }
+      .social-menu {
+        .menu {
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            margin: 0 1rem;
+          }
+          .social-icon {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 6rem;
+            &.social-facebook {
+              background-image: url("../img/svg/facebook.svg");
+            }
+            &.social-instagram {
+              background-image: url("../img/svg/insta.svg");
+            }
+            &.social-youtube {
+              background-image: url("../img/svg/home-social.svg");
+            }
+          }
+        }
+      }
+    }
+  }
+}

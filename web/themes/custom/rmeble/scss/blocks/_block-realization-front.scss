@@ -1,0 +1,41 @@
+#block-views-block-realization-front-block-1 {
+  background-color: #f2f2f2;
+  padding: 5rem 0 10rem;
+  @include md {
+    padding: 0;
+    margin: 3rem 0;
+  }
+  @include sm {
+    background-color: white;
+  }
+  .pagination-wrapper {
+    position: relative;
+  }
+  .realization-front-swiper {
+    overflow: hidden;
+    position: relative;
+  }
+  .swiper-pagination-custom {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -6rem;
+    text-align: center;
+    @include sm {
+      display: none;
+    }
+    .swiper-pagination-bullet {
+      width: 3rem;
+      height: 3px;
+      // background-color: rgba(255, 255, 255, 0.5);
+      background-color: red;
+      opacity: 1;
+      border-radius: 0;
+      outline: none;
+      margin: 0 1rem;
+      &.swiper-pagination-bullet-active {
+        background-color: white;
+      }
+    }
+  }
+}

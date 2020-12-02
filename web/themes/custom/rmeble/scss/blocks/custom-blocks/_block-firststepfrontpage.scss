@@ -1,0 +1,103 @@
+.block--id--firststepfrontpage {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 7rem 0;
+  @include md {
+    margin: 4rem 0;
+  }
+  .block-image {
+    width: calc(50% - 8rem);
+    margin-right: 8rem;
+    min-height: 590px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include lg {
+      margin-right: 3rem;
+    }
+    @include md {
+      width: 100%;
+      margin-right: 0;
+      min-height: 350px;
+      background-position: 50% 30%;
+    }
+    @include sm {
+      min-height: 230px;
+      background-position: 50% 0%;
+    }
+  }
+  .block-content-wrapper {
+    max-width: 700px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+    @include lg {
+      width: calc(50% + 5rem);
+    }
+    @include md {
+      width: 100%;
+    }
+    .block-title {
+      font-family: $montserrat;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6rem 0 6rem 6rem;
+      position: relative;
+      @include md {
+        text-align: center;
+        padding: 6rem 0 2rem 0;
+        margin-top: 4rem;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      &::before {
+        content: "01";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: $butlerStencil;
+        font-size: 144px;
+        line-height: 173px;
+        font-weight: 600;
+        color: color(grayNumbers);
+        z-index: -1;
+        @include md {
+          text-align: center;
+          left: 50%;
+          top: 55%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    .field-body {
+      text-align: justify;
+      @include md {
+        text-align: center;
+      }
+    }
+    .block-link-wrapper {
+      @include md {
+        text-align: center;
+      }
+      a {
+        border: 1px solid color(grayNumbers);
+        padding: 1rem 2rem;
+        transition: all 0.4s;
+        margin-top: 3rem;
+        @include md {
+          margin-top: 1rem;
+        }
+        &:hover {
+          background-color: color(brown);
+          border: 1px solid color(brown);
+          color: white;
+        }
+      }
+    }
+  }
+}

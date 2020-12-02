@@ -1,0 +1,46 @@
+#block-views-block-realization-filters-block-1 {
+  .block-filters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .vocabulary-realization:not(:last-child) {
+      position: relative;
+      &::after {
+        content: "|";
+        margin: 0 1.2rem 0 1rem;
+        color: color(gray);
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+    .taxonomy-list-isotope-filtr {
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20px;
+      position: relative;
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 1px;
+        background-color: color(black);
+        transition: all 0.4s;
+      }
+      &.is-checked {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

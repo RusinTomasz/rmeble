@@ -1,0 +1,95 @@
+.login-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  background-color: gray;
+  background-image: url("../img/jpg/login.jpg");
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   position: absolute;
+  //   z-index: -1;
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   background-color: rgba(255, 255, 255, 0.9);
+  // }
+  .login-form-wrapper {
+    background: linear-gradient(to right, white, white);
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 37px;
+    .logo-top {
+      width: 100%;
+      img {
+        cursor: pointer;
+        margin: auto;
+      }
+    }
+    .login-form-title {
+      font-size: 30px;
+      color: #121212;
+      text-align: center;
+      text-transform: uppercase;
+      display: block;
+      padding-bottom: 34px;
+      padding-top: 27px;
+    }
+    .user-login-form {
+      text-align: center;
+      label {
+        display: none;
+      }
+      input {
+        font-size: 16px;
+        color: black;
+        background-color: white;
+        line-height: 1.2;
+        display: block;
+        width: 100%;
+        height: 45px;
+        padding: 0 5px 0 38px;
+        border: 1px solid #c1cfd0;
+        outline: none;
+        border-radius: 0;
+        &.js-form-submit {
+          font-size: 16px;
+          color: #555;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 20px;
+          min-width: 120px;
+          height: 50px;
+          border-radius: 0;
+          transition: all 0.4s;
+          position: relative;
+          background-color: #fff;
+          display: inline-block;
+          width: auto;
+          margin: 2rem 0;
+          &:hover {
+            cursor: pointer;
+            background-color: #c1cfd0;
+            color: white;
+          }
+        }
+      }
+      .description {
+        color: #121212;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

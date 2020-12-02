@@ -1,0 +1,63 @@
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin lgmin {
+  @media (min-width: #{$screen-lg-min + 1}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (max-width: $screen+"px") {
+    @content;
+  }
+}
+
+@mixin customList() {
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      background-image: url("../img/svg/list-icon.svg");
+      background-position: 0% 1.8rem;
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      padding: 0.5rem 0 0.5rem 2rem;
+    }
+  }
+}
+
+@mixin customListitem() {
+  list-style: none;
+  background-image: url("../img/svg/pros-icon.svg");
+  background-position: 0% 1.8rem;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding: 0.5rem 0 0.5rem 2rem;
+}

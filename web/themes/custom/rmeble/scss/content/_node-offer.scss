@@ -1,0 +1,97 @@
+.node--type-offer {
+  &.node--view-mode-full {
+    .intro-text {
+      text-align: justify;
+    }
+    .faq {
+      margin-top: 7rem;
+      .faq-item {
+        border-bottom: 1px solid color(grayNumbers);
+        padding-bottom: 2.5rem;
+        p {
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 20px;
+          color: color(brown);
+        }
+      }
+    }
+    .field-body {
+      margin-top: 7rem;
+      text-align: justify;
+    }
+    .realizations {
+      margin-top: 7rem;
+      .node--type-realization {
+        &.node--view-mode-teaser {
+          margin: 3rem 0;
+          &.small-width-node {
+            width: 100%;
+            .image-realization-teaser {
+              min-height: 700px;
+              .realization-teaser-content {
+                .page-title {
+                  font-weight: 500;
+                  font-size: 24px;
+                  line-height: 29px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.node--view-mode-teaser {
+    .offer-teaser-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      .offer-teaser-image {
+        width: 50%;
+        min-height: 650px;
+      }
+      .offer-teaser-content {
+        width: 50%;
+        max-width: 700px;
+        padding-left: 200px;
+        padding-right: 15px;
+        .page-teaser-title {
+          font-family: $montserrat;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 39px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+        .intro-text {
+          text-align: justify;
+        }
+        .link-wrapper {
+          .link-offer-teaser {
+            margin-top: 2rem;
+            border: 1px solid color(grayDark);
+            padding: 1rem 3rem;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            &:hover {
+              border: 1px solid color(brown);
+              background-color: color(brown);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(even) {
+      margin: 15rem 0;
+      .offer-teaser-wrapper {
+        justify-content: flex-end;
+        .offer-teaser-content {
+          order: -1;
+          padding-right: 200px;
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<?php
+
+function responsive_image_styles_to_file_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id == "responsive_image_styles_to_file_form") {
+        $form['actions']['submit']['#value'] = t('Generete responsive image styles');
+    }
+}
+
+function responsive_image_styles_to_file_preprocess_page(&$variables) {
+    $variables['#attached']['library'][] = 'responsive_image_styles_to_file/responsive_image_styles_to_file';
+  }

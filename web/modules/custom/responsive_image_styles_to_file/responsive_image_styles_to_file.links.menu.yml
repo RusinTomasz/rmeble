@@ -1,0 +1,6 @@
+responsive_image_styles_to_file.admin_settings_form:
+  title: "Generate responsive image styles"
+  route_name: responsive_image_styles_to_file.admin_settings_form
+  description: "Responsive image styles to file admin"
+  parent: system.admin
+  weight: 99

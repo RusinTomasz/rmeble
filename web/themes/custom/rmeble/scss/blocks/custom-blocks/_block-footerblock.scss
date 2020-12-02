@@ -1,0 +1,52 @@
+.block--id--footerblock {
+  .footer-block-image {
+    padding: 6rem 0;
+    @include md {
+      padding: 4rem 0;
+    }
+    .field-body {
+      .footer-title,
+      .footer-subtitle,
+      .link-phone-wrapper {
+        text-align: center;
+        margin: 0;
+      }
+      .footer-title {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 32px;
+        @include md {
+          font-size: 13px;
+          line-height: 21px;
+        }
+      }
+      .footer-subtitle {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 32px;
+        margin: 1rem 0;
+        @include md {
+          font-size: 11px;
+          line-height: 18px;
+          margin: 0 0 1rem 0;
+        }
+      }
+      .link-phone-wrapper {
+        .footer-phone {
+          font-family: $butler;
+          font-size: 48px;
+          line-height: 58px;
+          margin: 0;
+          transition: all 0.4s;
+          @include md {
+            font-size: 24px;
+            line-height: 29px;
+          }
+          &:hover {
+            color: color(brown);
+          }
+        }
+      }
+    }
+  }
+}

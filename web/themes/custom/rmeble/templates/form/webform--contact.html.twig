@@ -1,0 +1,30 @@
+<div class="form-wrapper">
+  <div class="contact-icon"></div>
+  <h2 class="webform-label">{{ "Write to us"|trans }}</h2>
+  <div class="request-form">
+    <div class="form-wrap clearfix">
+    <form{{ attributes }}>
+      {{ title_prefix }}
+        <div class="flex-wrapper">
+          <div class="flex-half">
+              {{ element.elements.name }}
+          </div>
+          <div class="flex-half">
+              {{ element.elements.email }}
+          </div>
+          <div class="flex-full">
+            {{ element.elements.message }}
+            {{ element.elements.consent_to_the_processing_of_perso }}
+            {{ element.form_token }}
+            {{ element.form_build_id }}
+            {{ element.form_id }}
+          </div>
+          <div class="submit-wrapper">
+            {{ element.elements.actions }}
+          </div>
+        </div>
+      {{ title_suffix }}
+      </form>
+    </div>
+  </div>
+</div>

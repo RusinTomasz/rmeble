@@ -1,0 +1,367 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the rmeble theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\Core\Url;
+use Drupal\responsive_background_image\ResponsiveBackgroundImage;
+use Drupal\file\Entity\File;
+
+function rmeble_preprocess_page(&$variables) {
+
+  // layout seting
+  if(theme_get_setting('sticky-header') == 1) {
+    $variables['stickup_header']   = 'is_stickup' ;
+  } else {
+    $variables['stickup_header']   = 'stickup' ;
+  }
+  $variables['login_form'] = FALSE;
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['lang_code'       ] = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+  $variables['facebook'   ] = theme_get_setting('facebook')?theme_get_setting('facebook'):FALSE;
+  $variables['youtube'   ] = theme_get_setting('youtube')?theme_get_setting('youtube'):FALSE;
+  $variables['instagram'   ] = theme_get_setting('instagram')?theme_get_setting('instagram'):FALSE;
+  $variables['main_logo'   ] = file_create_url('/themes/custom/rmeble/logo.svg');
+  $variables['main_phone'  ] = theme_get_setting('main_phone')?theme_get_setting('main_phone'):FALSE;
+  $variables['main_mphone' ] = theme_get_setting('main_mobile')?theme_get_setting('main_mobile'):FALSE;
+  $variables['main_address'] = theme_get_setting('main_address')?theme_get_setting('main_address'):FALSE;
+  $variables['main_email'  ] = \Drupal::config('system.site')->get('mail');;
+  $variables['top_photo'  ] = "";
+  $variables['banner_subtitle'  ] = "";
+  $variables['main_footer'] = theme_get_setting('cs_footer')?theme_get_setting('cs_footer'):FALSE;
+
+  $variables['main_menu']   = rmeble_render_menu_navigation('main');
+  $variables['footer_menu_first']   = rmeble_render_menu_navigation('footer-first');
+  $variables['footer_menu_second']   = rmeble_render_menu_navigation('footer-second');
+  $variables['footer_menu_third']   = rmeble_render_menu_navigation('footer-third');
+
+
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  if($page_title) {
+    $variables['current_page_title'] = $page_title;
+  }
+
+  if (array_key_exists('node', $variables)) {
+    $node = $variables['node'];
+    if (isset($node) ) {
+      if ($node->hasField('field_banner_top_photo') && $node->get('field_banner_top_photo')->entity != null) {
+        $images = $node->get('field_banner_top_photo');
+        $file = $node->field_banner_top_photo->entity;
+        if(sizeof($images) != 0) {
+          $header_responsive = [
+            'label'    => 'hidden',
+            'type'     => 'responsive_image',
+            'settings' => [
+              'responsive_image_style' => 'banner_top',
+            ],
+          ];
+          $renderer = \Drupal::service('renderer');
+          $renderer->addCacheableDependency($header_responsive, $file);
+          $image = $node->get('field_banner_top_photo')->view($header_responsive);
+          $variables['top_photo'] = $image;
+        }
+      }
+    }
+  }else if(\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+    if($term->hasField('field_tx_banner_top_image') && $term->get('field_tx_banner_top_image')->entity != null) {
+      $header_responsive = [
+        'label'    => 'hidden',
+        'type'     => 'responsive_image',
+        'settings' => [
+          'responsive_image_style' => 'banner_top',
+        ],
+      ];
+      $variables['top_photo'] = $term->field_tx_banner_top_image->view($header_responsive);
+    }
+   }
+   if (!\Drupal::currentUser()->id()) {
+    $form = Drupal::formBuilder()->getForm(Drupal\user\Form\UserLoginForm::class) ;
+    $render = Drupal::service('renderer');
+    $variables['login_form'] = $render->renderPlain($form);
+  }
+}
+
+
+function rmeble_preprocess_block(&$variables) {
+  $block_id = $variables['elements']['#id'];
+  $css_class = 'block--id--' . $block_id;
+  $variables['attributes']['class'][] = $css_class;
+
+  $content = $variables['elements']['content'];
+  if (isset($content['#block_content'])) {
+    $bundle = $content['#block_content']->bundle();
+    $css_class_bundle = 'block--bundle--' . $bundle;
+    $variables['attributes']['class'][] = $css_class_bundle;
+  }
+}
+
+
+function rmeble_preprocess_taxonomy_term(&$variables) {
+  if($variables['term']) {
+    $term = $variables['term'];
+    $term_id = $term->id();
+    $css_class = 'term--id--' . $term_id;
+    $variables['attributes']['class'][] = $css_class;
+
+    $term_name = $term->getName();
+
+    $variables['term_name'] = $term_name;
+    // $block = \Drupal\block\Entity\Block::load('rmeble_breadcrumbs');
+    // $block_content = \Drupal::entityTypeManager()
+    //   ->getViewBuilder('block')
+    //   ->view($block);
+    // $variables['breadcrumbs'] = $block_content;
+  }
+}
+
+// function rmeble_preprocess_views_view_unformatted(&$variables) {
+
+//   $view = $variables["view"];
+//   $id = $view->id();
+
+// }
+
+
+function rmeble_preprocess_node(&$variables) {
+
+  if($variables['node']) {
+    $node = $variables['node'];
+    $node_id = $node->id();
+    $css_class = 'node--id--' . $node_id;
+    $variables['attributes']['class'][] = $css_class;
+  }
+
+  $block = \Drupal\block\Entity\Block::load('rmeble_breadcrumbs');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  $variables['breadcrumbs'] = $block_content;
+
+
+  // if ($variables['node']->getType() == 'realization'){
+  //   $_prev = rmeble_node_nextprev_navi($variables['node']->getCreatedTime(),'prev',$variables['node']->getType());
+  //   $_next = rmeble_node_nextprev_navi($variables['node']->getCreatedTime(),'next',$variables['node']->getType());
+  //   if ($_prev) {
+  //     $variables['prev_title'] = rmeble_safe_cut($_prev->title);
+  //     $variables['prev_alias'] = $_prev->alias;
+  //   }
+  //   if ($_next) {
+  //     $variables['next_title'] = rmeble_safe_cut($_next->title);
+  //     $variables['next_alias'] = $_next->alias;
+  //   }
+  // }
+
+}
+
+function rmeble_preprocess_node__realization(&$variables) {
+  $variables['cs_group']  = 'paragraph-gallery-'.rand(10000,20000);
+  $numberOfNodes = cuntNodes('realization');
+  $variables['numberOfNodes'] = $numberOfNodes;
+
+  if($variables['node']) {
+    $node = $variables['node'];
+    $taxonomyId = $node->get('field_taxonomy_refrence')->target_id;
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($taxonomyId);
+    $name = $term->getName();
+    $variables['nodeCategory'] = $name;
+
+  }
+
+  
+}
+
+
+
+
+function rmeble_preprocess_file_link(&$variables) {
+
+  if (isset($variables['file'])) {
+    $variables['fileLinkDisplay'] = [
+      'fileBundle' => $variables['file']
+        ->bundle(),
+      'fileCreatedTime' => $variables['file']
+        ->getCreatedTime(),
+      'fileChangedTime' => $variables['file']
+        ->getChangedTime(),
+      'fileFid' => $variables['file']
+        ->fid->value,
+      'fileLangcode' => $variables['file']
+        ->langcode->value,
+      'fileMime' => $variables['file']
+        ->getMimeType(),
+      'fileName' => $variables['file']
+        ->getFilename(),
+      'fileSize' => $variables['file']
+        ->getSize(),
+      'fileSizeFormatted' => format_size($variables['file']
+        ->getSize()),
+      'fileStatus' => $variables['file']
+        ->status->value,
+      'fileUrl' => file_create_url($variables['file']
+        ->getFileUri()),
+      'fileUuid' => $variables['file']
+        ->uuid->value,
+    ];
+  }
+}
+
+function rmeble_theme_suggestions_file_link_alter(&$suggestions, $vars, $hook) {
+
+
+  // if(\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+  //   $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+  //   $term = $term->bundle();
+
+  //   // Create the theme hook suggestion.
+  //   $suggestions[] = 'file_link__' . 'type_' . $term;
+  // }
+
+  // Get the node type.
+  // $node = \Drupal::routeMatch()->getParameter('node');
+
+  // $type = $node->getType();
+
+  // // Create the theme hook suggestion.
+  // $suggestions[] = 'file__link__' . 'type_' . $type;
+
+}
+
+
+/**
+ * Use language code for the language switcher
+ *
+ * @param $variables
+ */
+function rmeble_preprocess_links__language_block(&$variables) {
+  foreach ($variables['links'] as $i => $link) {
+    $linkLanguage = $link['link']['#options']['language'];
+    $variables['links'][$i]['link']['#title'] = $linkLanguage->get('id');
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds image classes if certain regions have content.
+ */
+function rmeble_preprocess_image_formatter(&$variables) {
+  if ($variables['image_style']) {
+    $variables['image']['#attributes']['class'][] = 'img-responsive';
+  }
+}
+
+function rmeble_preprocess_image(&$variables) {
+	if ( isset($variables['style_name']) ) {
+    $variables['attributes']['class'][] = 'img-responsive';
+	}
+}
+
+
+function rmeble_render_menu_navigation($menu_name,$theme_alter = ''){
+  //Set system menu mobile
+  $menu_tree = \Drupal::menuTree();
+  // Build the typical default set of menu tree parameters.
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+  // Load the tree based on this set of parameters.
+  $tree = $menu_tree->load($menu_name, $parameters);
+  // Transform the tree using the manipulators you want.
+  $manipulators = array(
+    // Only show links that are accessible for the current user.
+    array('callable' => 'menu.default_tree_manipulators:checkAccess'),
+    // Use the default sorting of menu links.
+    array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
+  );
+  $tree = $menu_tree->transform($tree, $manipulators);
+  // Finally, build a renderable array from the transformed tree.
+  $menu = $menu_tree->build($tree);
+  if(!empty($theme_alter)){
+    //$menu['#theme'] = $theme_alter;
+  }
+  return \Drupal::service('renderer')->render($menu);
+}
+
+
+function rmeble_node_nextprev_navi($date,$dir,$type) {
+  if ($dir == 'next') {
+    $_dir = '<';
+  } else {
+    $_dir = '>';
+  }
+  $query = \Drupal::entityQuery('node');
+  $query->condition('type', $type)
+    ->condition('status', 1)
+    ->condition('created', $date, $_dir)
+    ->sort('created' , ($dir == 'next' ? 'DESC' : 'ASC'))
+    ->range(0, 1);
+
+  $results = $query->execute();
+
+
+  if (!empty($results)) {
+    $nodes  = Drupal\node\Entity\Node::loadMultiple($results);
+
+    foreach($nodes as $item) {
+      $nid    = $item->id();
+      $title  = $item->getTitle();
+      $alias  = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$item->id());
+      $style = \Drupal::entityTypeManager()->getStorage('image_style')->load('150x150');
+      break;
+    }
+    return (object)array(
+      'title' => strip_tags( $title),
+      'alias' => $alias,
+    );
+  } else {
+    return FALSE;
+  }
+}
+
+function cuntNodes($type) {
+  $query = \Drupal::entityQuery('node')
+  ->condition('type', $type);
+  $result = $query->count()->execute();
+
+  return $result;
+
+}
+
+
+function rmeble_safe_cut($string,$length = 40, $suffix = '...'){
+  return (strlen($string) > $length) ?  substr($string, 0, $length) . $suffix : $string;
+}
+
+function rmeble_preprocess_field__field_image_colorbox(&$variables) {
+  $variables['cs_image']      = [];
+
+  $variables['cs_group']      = 'paragraph-gallery-'.rand(10000,20000);
+  // $variables['cs_group']      = 'paragraph-gallery-'.'1111';
+  $style    = \Drupal::entityTypeManager()->getStorage('image_style')->load('max_2600x2600');
+
+  // var_dump($variables['element']);
+
+  if (isset($variables['element']) && isset($variables['element']['#items'])){
+    $items = $variables['element']['#items']->getIterator();
+
+      foreach ($items as $key => $image) {
+        $variables['cs_image'][] = $style->buildUrl($image->entity->getFileUri());
+      }
+    }
+}
+
+
+
+
+
+function rmeble_preprocess_field__field_multiple_images_slides(&$variables) {
+  $variables['cs_group']  = 'paragraph-gallery-'.rand(10000,20000);
+}

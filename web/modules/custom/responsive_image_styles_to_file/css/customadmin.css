@@ -1,0 +1,7 @@
+.toolbar-icon-responsive-image-styles-to-file-admin-settings-form:before {
+  background-image: url(http://rmeble.local/themes/custom/rmeble/img/svg/gear-gray.svg);
+}
+
+.toolbar-icon-responsive-image-styles-to-file-admin-settings-form.is-active:before {
+  background-image: url(http://rmeble.local/themes/custom/rmeble/img/svg/gear.svg);
+}
