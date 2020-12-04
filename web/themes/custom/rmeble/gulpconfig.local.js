@@ -1,5 +1,5 @@
 module.exports = {
   critical: {
-    baseDomain: "http://rmeble.adsvps.pl/",
+    baseDomain: "http://rm.adsvps.pl/",
   },
 };
