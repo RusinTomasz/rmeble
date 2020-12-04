@@ -53,10 +53,11 @@
 			<div class="para-step-item">
 				{% if  content.field_p_single_image[0] is not empty  %}
 					{% if content.field_p_boolean['#items'].value %}
-						<div class="para-image-content-wrapper para-image-content-wrapper-right">
+						<div class="para-image-content-wrapper para-image-content-wrapper-right" data-aos="fade-up">
 							<div class="para-image-content-content">
 								{% if  content.field_p_short_text[0] is not empty  %}
-									<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+									<h2 class="para-title">{{ content.field_p_short_text }}<span class="para-number-mobile">{{ content.field_p_short_text_3 }}</span>
+									</h2>
 								{% endif %}
 								{% if  content.field_p_long_text[0] is not empty  %}
 									<div class="para-body">{{ content.field_p_long_text }}</div>
@@ -64,21 +65,22 @@
 							</div>
 							{% if  content.field_p_single_image[0] is not empty  %}
 								<div class="para-image-content-image image-right">
-									<div class="para-single-image-wrapper">
+									<div class="para-single-image-wrapper" style="background-image:url('{{ file_url(paragraph.field_p_single_image.entity.fileuri) }}');">
 										<span class="para-number">{{ content.field_p_short_text_3 }}</span>
-										{{ content.field_p_single_image }}</div>
+									</div>
 								</div>
 							{% endif %}
 						</div>
 					{% else %}
-						<div class="para-image-content-wrapper para-image-content-wrapper-left">
+						<div class="para-image-content-wrapper para-image-content-wrapper-left" data-aos="fade-up">
 							<div class="para-image-content-image image-left">
-								<div class="para-single-image-wrapper">
+								<div class="para-single-image-wrapper" style="background-image:url('{{ file_url(paragraph.field_p_single_image.entity.fileuri) }}');">
 									<span class="para-number">{{ content.field_p_short_text_3 }}</span>
-									{{ content.field_p_single_image }}</div>
+								</div>
 							</div>
 							<div class="para-image-content-content">
-								<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+								<h2 class="para-title">{{ content.field_p_short_text }}<span class="para-number-mobile">{{ content.field_p_short_text_3 }}</span>
+								</h2>
 								{% if  content.field_p_long_text[0] is not empty  %}
 									<div class="para-body">{{ content.field_p_long_text }}</div>
 								{% endif %}
@@ -89,9 +91,10 @@
 				{% else %}
 					{% if content.field_p_short_text[0] is not empty or content.field_p_long_text[0] is not empty  %}
 						<div class="container">
-							<div class="para-content-wrapper">
+							<div class="para-content-wrapper" data-aos="fade-up">
 								{% if  content.field_p_short_text[0] is not empty  %}
-									<h2 class="para-title">{{ content.field_p_short_text }}</h2>
+									<h2 class="para-title">{{ content.field_p_short_text }}<span class="para-number-mobile">{{ content.field_p_short_text_3 }}</span>
+									</h2>
 								{% endif %}
 								{% if  content.field_p_long_text[0] is not empty  %}
 									<div class="para-body">
@@ -111,7 +114,7 @@
 					<div class="para-image responsive-img-background">
 						{{ content.field_p_single_image_2 }}
 						<div class="container">
-							<div class="para-image-container">
+							<div class="para-image-container" data-aos="fade">
 								{% if content.field_p_single_image_3[0] is not empty %}
 									<div class="para-icon-wrapper">
 										{{ content.field_p_single_image_3 }}

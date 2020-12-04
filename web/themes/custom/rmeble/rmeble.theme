@@ -146,6 +146,34 @@ function rmeble_preprocess_node(&$variables) {
     ->view($block);
   $variables['breadcrumbs'] = $block_content;
 
+  $block = \Drupal\block\Entity\Block::load('views_block__realization_front_block_1');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  if(!empty(views_get_view_result('realization_front','block_1'))) {
+    $variables['realization_front'] = $block_content;
+  }else {
+    $variables['realization_front'] = NULL;
+  }
+
+  $block = \Drupal\block\Entity\Block::load('views_block__offer_block_1');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  if(!empty(views_get_view_result('offer','block_1'))) {
+    $variables['offer'] = $block_content;
+  }else {
+    $variables['offer'] = NULL;
+  }
+
+
+
+  $block = \Drupal\block\Entity\Block::load('footerblock');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  $variables['footerblock'] = $block_content;
+
 
   // if ($variables['node']->getType() == 'realization'){
   //   $_prev = rmeble_node_nextprev_navi($variables['node']->getCreatedTime(),'prev',$variables['node']->getType());
@@ -159,9 +187,6 @@ function rmeble_preprocess_node(&$variables) {
   //     $variables['next_alias'] = $_next->alias;
   //   }
   // }
-
-
-
 
 }
 
@@ -202,13 +227,17 @@ function rmeble_preprocess_node__realization(&$variables) {
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($taxonomyId);
     $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($term, $currentLanguage);
 
-
     $name = $translated_term->getName();
     $variables['nodeCategory'] = $name;
-
   }
 
   
+  $block = \Drupal\block\Entity\Block::load('relatedrealizationblock');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  $variables['relatedrealizationblock'] = $block_content;
+
 }
 
 

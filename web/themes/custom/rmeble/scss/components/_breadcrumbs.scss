@@ -4,6 +4,10 @@
   @include lg {
     margin: 2rem 0 1rem;
   }
+  @include md {
+    margin: 2rem 0 3rem;
+    text-align: center;
+  }
   .breadcrumb {
     padding: 0 1.5rem;
     ol {
@@ -20,11 +24,20 @@
         font-size: 12px;
         line-height: 14px;
         font-family: $montserrat;
+        font-weight: 400;
+        @include md {
+          font-size: 9px;
+          line-height: 11px;
+        }
         a {
           text-transform: uppercase;
           font-size: 12px;
           line-height: 14px;
           font-family: $montserrat;
+          @include md {
+            font-size: 9px;
+            line-height: 11px;
+          }
         }
       }
       li:last-child {
@@ -38,6 +51,9 @@
           width: calc(100% - 10px);
           height: 1px;
           background-color: color(black);
+          @include md {
+            display: none;
+          }
         }
       }
     }

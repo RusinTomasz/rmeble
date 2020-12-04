@@ -6,6 +6,29 @@
     line-height: 39px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    position: relative;
+    @include lg {
+      margin: 0;
+      padding: 3rem 0;
+    }
+
+    .para-number-mobile {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      font-family: $butlerStencil;
+      font-weight: bold;
+      font-size: 96px;
+      line-height: 96px;
+      text-transform: uppercase;
+      color: color(grayNumbers);
+      z-index: -1;
+      display: none;
+      @include lg {
+        display: block;
+      }
+    }
   }
   .para-body {
     text-align: justify;
@@ -21,6 +44,9 @@
       text-transform: uppercase;
       color: color(grayNumbers);
       z-index: -1;
+      @include lg {
+        display: none;
+      }
     }
   }
   .faq-item {
@@ -31,10 +57,17 @@
       font-size: 16px;
       line-height: 20px;
       color: color(brown);
+      @include md {
+        font-size: 13px;
+        line-height: 16px;
+      }
     }
   }
   .para-image {
     padding: 15rem 0;
+    @include md {
+      padding: 7rem 0;
+    }
     picture {
       img {
         display: none;
@@ -57,6 +90,10 @@
         text-transform: uppercase;
         text-align: center;
         margin: 1.5rem 0;
+        @include md {
+          font-size: 24px;
+          line-height: 29px;
+        }
       }
       .para-image-body {
         text-align: center;
@@ -71,6 +108,11 @@
           background-color: white;
           padding: 2rem 4rem;
           transition: all 0.4s;
+          @include md {
+            font-size: 18px;
+            line-height: 33px;
+            padding: 1rem 2rem;
+          }
           &:hover {
             background-color: color(brown);
             color: white;
@@ -84,10 +126,30 @@
     display: flex;
     flex-wrap: wrap;
     padding: 6rem 0;
-
+    @include md {
+      padding: 3rem 0;
+    }
     .para-image-content-image {
       width: 50%;
       position: relative;
+      @include lg {
+        width: 100%;
+      }
+      .para-single-image-wrapper {
+        min-height: 630px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include lg {
+          min-height: 430px;
+        }
+        @include md {
+          min-height: 300px;
+        }
+        @include sm {
+          min-height: 210px;
+        }
+      }
       .para-number {
         position: absolute;
         top: -30px;
@@ -98,9 +160,16 @@
         text-transform: uppercase;
         color: color(grayNumbers);
         z-index: 1;
+        @include lg {
+          display: none;
+        }
       }
+
       &.image-left {
         padding-top: 7rem;
+        @include md {
+          padding-top: 2rem;
+        }
         .para-number {
           position: absolute;
           right: 0;
@@ -108,6 +177,9 @@
       }
       &.image-right {
         padding-top: 7rem;
+        @include md {
+          padding-top: 2rem;
+        }
         .para-number {
           position: absolute;
           left: 0;
@@ -119,6 +191,15 @@
       max-width: 700px;
       padding-left: 200px;
       padding-right: 15px;
+      @include xl {
+        padding-left: 50px;
+      }
+      @include lg {
+        padding-left: 15px;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
       .para-title {
         margin-top: 0;
       }
@@ -128,6 +209,12 @@
       .para-image-content-content {
         padding-right: 200px;
         padding-left: 15px;
+        @include xl {
+          padding-right: 50px;
+        }
+        @include lg {
+          padding-right: 15px;
+        }
       }
     }
   }

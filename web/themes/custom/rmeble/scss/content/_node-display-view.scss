@@ -1,4 +1,13 @@
 .node--type-display-view {
   &.node--view-mode-full {
+    #block-views-block-realization-front-block-1 {
+      margin-top: 8rem;
+      @include md {
+        margin: 8rem 0 2rem;
+      }
+    }
+    .block--id--footerblock {
+      margin-top: 4rem;
+    }
   }
 }

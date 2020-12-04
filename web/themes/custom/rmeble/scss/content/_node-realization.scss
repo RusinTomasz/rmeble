@@ -16,6 +16,9 @@
           content: "";
           position: absolute;
           transition: all 0.4s;
+          @include md {
+            display: none;
+          }
         }
         &::after {
           top: 0;
@@ -43,6 +46,9 @@
       &.swiper-container-horizontal {
         .swiper-pagination {
           bottom: 3rem;
+          @include sm {
+            bottom: 1rem;
+          }
           .swiper-pagination-bullet {
             width: 3rem;
             height: 3px;
@@ -67,17 +73,35 @@
     }
     .realization-inside-block {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 5rem 0;
+      @include md {
+        padding: 2rem 0;
+      }
       .inside-block-first-element {
         width: 30%;
+        @include md {
+          width: 100%;
+        }
+        .inside-block-image {
+          img {
+            @include md {
+              margin: auto;
+            }
+          }
+        }
       }
       .inside-block-second-element {
         width: 70%;
         position: relative;
         max-width: 770px;
         padding-left: 170px;
+        @include md {
+          width: 100%;
+          padding-left: 0;
+        }
         .inside-block-text {
           position: absolute;
           top: 50%;
@@ -87,11 +111,25 @@
           background-color: white;
           padding: 7rem 5rem;
           text-align: center;
+          @include lg {
+            padding: 3rem 4rem;
+          }
+          @include md {
+            position: relative;
+            transform: none;
+            text-align: center;
+            margin: 2rem auto;
+            padding: 4rem 2.5rem;
+            background-color: color(grayNumbers);
+          }
           p {
             margin: 0;
           }
         }
       }
+    }
+    #block-footerblock {
+      margin-top: 4rem;
     }
   }
   &.node--view-mode-teaser,
@@ -109,6 +147,10 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      @include lg {
+        align-items: flex-end;
+        padding: 0;
+      }
       &:hover {
         &::after {
           opacity: 1;
@@ -142,7 +184,15 @@
         transition: all 0.4s;
         opacity: 0;
         margin-top: 5rem;
-        .page-title {
+        @include lg {
+          margin-top: 0;
+          opacity: 1;
+          padding: 1rem 0;
+          background-color: white;
+          width: 100%;
+        }
+        .page-title-teaser,
+        .page-title-token {
           font-family: $montserrat;
           font-weight: 500;
           font-size: 24px;
@@ -152,10 +202,19 @@
           text-align: center;
           margin: 0;
           cursor: default;
+          @include lg {
+            color: color(black);
+            text-align: left;
+            font-size: 18px;
+            line-height: 22px;
+          }
         }
         .links-wrapper {
           text-align: center;
           margin-top: 1rem;
+          @include lg {
+            text-align: left;
+          }
           .separator {
             color: white;
             font-weight: 300;
@@ -163,6 +222,9 @@
             line-height: 17px;
             display: inline-block;
             margin: 0 1rem;
+            @include lg {
+              display: none;
+            }
           }
           .link-teaser {
             font-weight: 300;
@@ -171,8 +233,32 @@
             color: white;
             letter-spacing: 0.1em;
             transition: all 0.4s;
+            &.colorbox {
+              @include lg {
+                background-color: color(grayNumbers);
+                margin-left: 1rem;
+              }
+            }
+            @include lg {
+              color: color(black);
+              border: 1px solid color(grayNumbers);
+              padding: 1rem 2rem;
+            }
+            @include md {
+              font-size: 11px;
+              line-height: 13px;
+              padding: 1rem 2rem;
+            }
+            @include sm {
+              padding: 1rem;
+            }
             &:hover {
               color: color(grayBackground);
+              @include lg {
+                color: white;
+                border: 1px solid color(brown);
+                background-color: color(brown);
+              }
             }
           }
         }
@@ -183,12 +269,19 @@
     }
     &.small-width-node {
       width: calc(50% - 30px);
+      @include lg {
+        width: 100%;
+      }
       .image-realization-teaser {
         min-height: 350px;
         .realization-teaser-content {
-          .page-title {
+          .page-title-teaser {
             font-size: 18px;
             line-height: 22px;
+            @include md {
+              font-size: 11px;
+              line-height: 13px;
+            }
           }
         }
       }
@@ -199,9 +292,13 @@
     .image-realization-token {
       min-height: 350px;
       .realization-token-content {
-        .page-title {
+        .page-title-token {
           font-size: 18px;
           line-height: 22px;
+          @include md {
+            font-size: 11px;
+            line-height: 13px;
+          }
         }
       }
     }
@@ -257,7 +354,7 @@
             margin: 0;
           }
         }
-        .page-title {
+        .page-title-custom {
           font-family: $butler;
           font-weight: 600;
           font-size: 32px;

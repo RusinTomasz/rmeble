@@ -131,12 +131,21 @@
           .each(function () {
             var mySwiper = new Swiper(".related-realizations-swiper", {
               loop: false,
-              slidesPerView: 3,
-              spaceBetween: 15,
+              slidesPerView: 1,
               watchOverflow: true,
               navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
+              },
+              breakpoints: {
+                992: {
+                  slidesPerView: 2,
+                  spaceBetween: 15,
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
               },
             });
           });

@@ -5,6 +5,10 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 36px;
+      @include sm {
+        font-size: 11px;
+        line-height: 30px;
+      }
     }
     .webform-subtitle {
       font-family: $montserrat;
@@ -13,13 +17,27 @@
       line-height: 36px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      @include sm {
+        font-size: 11px;
+        line-height: 30px;
+      }
     }
     .first-row {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       .webform-segment {
         width: 25%;
-
+        @include lg {
+          width: 29%;
+        }
+        @include md {
+          width: 100%;
+          text-align: center;
+        }
+        @include sm {
+          text-align: left;
+        }
         .webform-subtitle-phone,
         .webform-subtitle-email {
           font-family: $montserrat;
@@ -31,6 +49,10 @@
           text-decoration-line: underline;
           transition: all 0.4s;
           display: inline-block;
+          @include sm {
+            font-size: 11px;
+            line-height: 30px;
+          }
           &:hover {
             color: color(brown);
           }
@@ -43,17 +65,42 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      @include md {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+      }
       p {
         text-align: justify;
       }
       .contact-map-wrapper {
         width: 50%;
+        @include xl {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        iframe {
+          display: block;
+          max-width: 100%;
+          @include md {
+            height: 250px;
+          }
+          @include sm {
+            height: 170px;
+          }
+        }
       }
       .content-text-wrapper {
         width: 50%;
         max-width: 700px;
         padding-left: 200px;
         padding-right: 15px;
+        @include xl {
+          width: 100%;
+          padding-left: 15px;
+          max-width: 960px;
+          margin: 3rem auto 0;
+        }
         .webform-title {
           margin-top: 0;
         }
@@ -65,6 +112,10 @@
         line-height: 58px;
         text-transform: uppercase;
         transition: all 0.4s;
+        @include md {
+          font-size: 32px;
+          line-height: 38px;
+        }
         &:hover {
           color: color(brown);
         }

@@ -41,11 +41,19 @@ h2 {
   font-weight: 400;
   letter-spacing: 0.1em;
   font-family: $montserrat;
+  @include md {
+    font-size: 24px;
+    line-height: 29px;
+  }
 }
 
 h3 {
   font-size: 28px;
   line-height: 34px;
+  @include md {
+    font-size: 21px;
+    line-height: 25px;
+  }
 }
 
 a {

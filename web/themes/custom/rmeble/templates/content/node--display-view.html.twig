@@ -92,20 +92,35 @@
 	<article{{attributes.addClass(classes)}}>
 		<div class="container">
 			<h1 class="page-title">{{ conLabel|striptags }}</h1>
-			{% if breadcrumbs %}
-				{{ breadcrumbs }}
-			{% endif %}
-			{% if node.id == 4 %}
-				{% if realization_filters %}
-					{{ realization_filters }}
-				{% endif %}
-				{% if realization %}
-					{{ realization }}
-				{% endif %}
-			{% endif %}
-			{% if content.body[0] is not empty %}
-				{{ content.body }}
-			{% endif %}
 		</div>
+		{% if breadcrumbs %}
+			{{ breadcrumbs }}
+		{% endif %}
+		{% if node.id == 9 %}
+			{% if offer %}
+				{{ offer }}
+			{% endif %}
+		{% endif %}
+		{% if node.id == 4 %}
+			{% if realization_filters %}
+				{{ realization_filters }}
+			{% endif %}
+			{% if realization %}
+				{{ realization }}
+			{% endif %}
+		{% endif %}
+		{% if content.body[0] is not empty %}
+			<div class="container">
+				{{ content.body }}
+			</div>
+		{% endif %}
+		{% if node.id == 9 %}
+			{% if realization_front %}
+				{{ realization_front }}
+			{% endif %}
+		{% endif %}
+		{% if footerblock %}
+			{{ footerblock }}
+		{% endif %}
 	</article>
 {% endif %}

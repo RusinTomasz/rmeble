@@ -126,32 +126,37 @@
 				</div>
 			{% endif %}
 			{% if content.body[0] is not empty %}
-				{{ content.body }}
+				<div data-aos="fade-up">{{ content.body }}</div>
 			{% endif %}
 
 			{% if content.field_long_text_2[0] is not empty and content.field_single_image_2[0] is not empty and content.field_single_image_3[0] is not empty  %}
 				<div class="realization-inside-block">
 					<div class="inside-block-first-element">
-						<div class="inside-block-image">{{ content.field_single_image_2 }}</div>
+						<div class="inside-block-image" data-aos="fade-right">{{ content.field_single_image_2 }}</div>
 					</div>
 					<div class="inside-block-second-element">
-						<div class="inside-block-text">{{ content.field_long_text_2 }}</div>
+						<div class="inside-block-text" data-aos="fade-up">{{ content.field_long_text_2 }}</div>
 						<div class="inside-block-background-image">{{ content.field_single_image_3 }}</div>
 					</div>
 				</div>
 			{% endif %}
 
 			{% if content.field_long_text[0] is not empty %}
-				{{ content.field_long_text }}
+				<div data-aos="fade-up">{{ content.field_long_text }}</div>
 			{% endif %}
-
+			{% if relatedrealizationblock %}
+				{{ relatedrealizationblock }}
+			{% endif %}
 		</div>
+		{% if footerblock %}
+			{{ footerblock }}
+		{% endif %}
 	</article>
 {% elseif view_mode == 'teaser' %}
 	<article{{attributes.addClass(classes,gridClasses,nodeCategory)}}>
 		<div class="image-realization-teaser">
 			<div class="realization-teaser-content">
-				<h2 class="page-title">{{ conLabel|striptags }}</h2>
+				<h2 class="page-title-teaser">{{ conLabel|striptags }}</h2>
 				<div class="links-wrapper">
 					<a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="link-teaser">{{ "See the realization"|trans }}</a>
 					{% if content.field_multiple_images_slides[0] is not empty %}
@@ -172,7 +177,7 @@
 	<article{{attributes.addClass("swiper-slide",classes)}}>
 		<div class="image-realization-token" style="background-image:url('{{ file_url(node.field_single_image.entity.fileuri) }}');">
 			<div class="realization-token-content">
-				<h2 class="page-title">{{ conLabel|striptags }}</h2>
+				<h2 class="page-title-token">{{ conLabel|striptags }}</h2>
 				<div class="links-wrapper">
 					<a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="link-teaser">{{ "See the realization"|trans }}</a>
 					{% if content.field_multiple_images_slides[0] is not empty %}
@@ -195,7 +200,7 @@
 			<div class="realization-title-wrapper">
 				<div class="realization-title-content">
 					<p class="realization-subtitle">{{ "The latest realization !"|trans }}</p>
-					<h3 class="page-title">{{ conLabel|striptags }}</h3>
+					<h3 class="page-title-custom">{{ conLabel|striptags }}</h3>
 				</div>
 			</div>
 			<div class="intro-image-small">{{ content.field_single_image_5 }}</div>

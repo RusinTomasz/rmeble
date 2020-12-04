@@ -33,11 +33,11 @@
 %}
 {% block content %}
 	<div{{attributes.addClass(classes)}}>
-		<div class="block-image"></div>
+		<div class="block-image" data-aos="fade-right"></div>
 		<div class="block-content-wrapper">
-			<h3 class="block-title">{{ content.field_b_short_text }}</h3>
-			{{ content.body }}
-			<div class="block-link-wrapper">
+			<h3 class="block-title" data-aos="fade-up">{{ content.field_b_short_text }}</h3>
+			<div data-aos="fade-up">{{ content.body }}</div>
+			<div class="block-link-wrapper" data-aos="fade-up">
 				{{ content.field_b_single_link }}
 			</div>
 		</div>

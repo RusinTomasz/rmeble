@@ -2,9 +2,20 @@
   &.node--view-mode-full {
     .intro-text {
       text-align: justify;
+      @include lg {
+        h1,
+        h2,
+        h3,
+        h4 {
+          text-align: left;
+        }
+      }
     }
     .faq {
       margin-top: 7rem;
+      @include md {
+        margin-top: 4rem;
+      }
       .faq-item {
         border-bottom: 1px solid color(grayNumbers);
         padding-bottom: 2.5rem;
@@ -13,15 +24,25 @@
           font-size: 16px;
           line-height: 20px;
           color: color(brown);
+          @include md {
+            font-size: 13px;
+            line-height: 16px;
+          }
         }
       }
     }
     .field-body {
       margin-top: 7rem;
       text-align: justify;
+      @include md {
+        margin-top: 4rem;
+      }
     }
     .realizations {
       margin-top: 7rem;
+      @include md {
+        margin-top: 4rem;
+      }
       .node--type-realization {
         &.node--view-mode-teaser {
           margin: 3rem 0;
@@ -29,11 +50,25 @@
             width: 100%;
             .image-realization-teaser {
               min-height: 700px;
+              @include lg {
+                min-height: 450px;
+              }
+              @include sm {
+                min-height: 300px;
+              }
               .realization-teaser-content {
                 .page-title {
                   font-weight: 500;
                   font-size: 24px;
                   line-height: 29px;
+                  @include lg {
+                    font-size: 18px;
+                    line-height: 22px;
+                  }
+                  @include md {
+                    font-size: 11px;
+                    line-height: 13px;
+                  }
                 }
               }
             }
@@ -41,20 +76,56 @@
         }
       }
     }
+    .block--id--footerblock {
+      margin-top: 8rem;
+      @include md {
+        margin-top: 4rem;
+      }
+      .field-body {
+        margin-top: 0;
+      }
+    }
   }
   &.node--view-mode-teaser {
+    &:nth-child(1) {
+      margin-top: 5rem;
+      @include md {
+        margin-top: 2rem;
+      }
+    }
     .offer-teaser-wrapper {
       display: flex;
       flex-wrap: wrap;
       .offer-teaser-image {
         width: 50%;
         min-height: 650px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include lg {
+          width: 100%;
+          min-height: 450px;
+        }
+        @include md {
+          min-height: 300px;
+        }
+        @include sm {
+          min-height: 210px;
+        }
       }
+
       .offer-teaser-content {
         width: 50%;
         max-width: 700px;
         padding-left: 200px;
         padding-right: 15px;
+        @include xl {
+          padding-left: 50px;
+        }
+        @include lg {
+          width: 100%;
+          padding-left: 15px;
+        }
         .page-teaser-title {
           font-family: $montserrat;
           font-weight: 400;
@@ -62,17 +133,40 @@
           line-height: 39px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
+          @include lg {
+            margin: 6rem 0 0;
+          }
+          @include md {
+            font-size: 24px;
+            line-height: 29px;
+            text-align: center;
+            margin: 3rem 0 0;
+          }
         }
         .intro-text {
           text-align: justify;
+          @include lg {
+            h1,
+            h2,
+            h3,
+            h4 {
+              text-align: left;
+            }
+          }
         }
         .link-wrapper {
+          @include md {
+            text-align: center;
+          }
           .link-offer-teaser {
             margin-top: 2rem;
             border: 1px solid color(grayDark);
             padding: 1rem 3rem;
             text-transform: uppercase;
             transition: all 0.4s;
+            @include md {
+              margin-top: 1rem;
+            }
             &:hover {
               border: 1px solid color(brown);
               background-color: color(brown);
@@ -84,12 +178,28 @@
     }
     &:nth-child(even) {
       margin: 15rem 0;
+      @include lg {
+        margin: 8rem 0;
+      }
+      @include md {
+        margin: 4rem 0;
+      }
       .offer-teaser-wrapper {
         justify-content: flex-end;
+        @include lg {
+          justify-content: flex-start;
+        }
         .offer-teaser-content {
           order: -1;
           padding-right: 200px;
           padding-left: 15px;
+          @include xl {
+            padding-right: 50px;
+          }
+          @include lg {
+            order: 0;
+            padding-right: 15px;
+          }
         }
       }
     }

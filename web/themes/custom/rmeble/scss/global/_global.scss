@@ -53,6 +53,12 @@ a {
 
 .page-title {
   margin-bottom: 1rem;
+  @include md {
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    margin-top: 8rem;
+  }
 }
 
 .button-up {

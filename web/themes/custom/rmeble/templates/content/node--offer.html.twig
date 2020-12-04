@@ -113,13 +113,16 @@
 				</div>
 			{% endif %}
 			{% if content.body[0] is not empty %}
-				{{ content.body }}
+				<div data-aos="fade-up">{{ content.body }}</div>
 			{% endif %}
 		</div>
+		{% if footerblock %}
+			{{ footerblock }}
+		{% endif %}
 	</article>
 {% elseif view_mode == 'teaser' %}
 	<article{{attributes.addClass(classes)}}>
-		<div class="offer-teaser-wrapper">
+		<div class="offer-teaser-wrapper" data-aos="fade-up">
 			<div class="offer-teaser-image"></div>
 			<div class="offer-teaser-content">
 				<h2 class="page-teaser-title">{{ conLabel|striptags }}</h2>
