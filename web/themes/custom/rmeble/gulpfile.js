@@ -101,4 +101,4 @@ gulp.task("watch", function () {
 });
 
 // Default task to be run with `gulp`
-gulp.task("default", ["sass", "js", "critical"]);
+gulp.task("default", ["sass", "js"]);

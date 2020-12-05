@@ -27,7 +27,7 @@ function rmeble_preprocess_page(&$variables) {
   $variables['facebook'   ] = theme_get_setting('facebook')?theme_get_setting('facebook'):FALSE;
   $variables['youtube'   ] = theme_get_setting('youtube')?theme_get_setting('youtube'):FALSE;
   $variables['instagram'   ] = theme_get_setting('instagram')?theme_get_setting('instagram'):FALSE;
-  $variables['main_logo'   ] = file_create_url('/themes/custom/rmeble/logo.svg');
+  $variables['main_logo'   ] = file_create_url('/themes/custom/rmeble/logo.jpg');
   $variables['main_phone'  ] = theme_get_setting('main_phone')?theme_get_setting('main_phone'):FALSE;
   $variables['main_mphone' ] = theme_get_setting('main_mobile')?theme_get_setting('main_mobile'):FALSE;
   $variables['main_address'] = theme_get_setting('main_address')?theme_get_setting('main_address'):FALSE;
