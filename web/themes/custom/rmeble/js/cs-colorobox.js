@@ -32,37 +32,15 @@
         }, 300);
       }
 
-      // window.addEventListener(
-      //   "orientationchange",
-      //   function () {
-      //     if ($("#cboxOverlay").is(":visible")) {
-      //       resizeColorBox();
-      //     }
-      //   },
-      //   false
-      // );
-
-      // var colorboxResize = function (resize) {
-      //   var width = "95%";
-      //   var height = "95%";
-
-      //   $.colorbox.settings.height = height;
-      //   $.colorbox.settings.width = width;
-
-      //   //if window is resized while lightbox open
-      //   if (resize) {
-      //     $.colorbox.resize({
-      //       height: height,
-      //       width: width,
-      //     });
-      //   }
-      // };
-
+      function colorboxClose() {
+        jQuery.colorbox.close();
+      }
       // Resize Colorbox when resizing window or changing mobile device orientation
 
       jQuery(window).resize(resizeColorBox);
 
-      window.addEventListener("orientationchange", resizeColorBox, false);
+      window.addEventListener("orientationchange", colorboxClose, false);
+
       var settings = {
         colorbox: {
           mobiledetect: true,
