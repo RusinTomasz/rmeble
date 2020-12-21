@@ -3,8 +3,22 @@
     .realization-swiper-slider {
       overflow: hidden;
       position: relative;
+      .swiper-pagination {
+        @include sm {
+          display: none;
+        }
+      }
+      .swiper-wrapper {
+        @include md {
+          transform: none;
+          display: block;
+        }
+      }
       .swiper-slide {
         position: relative;
+        @include md {
+          margin: 1rem 0;
+        }
         &:hover {
           &::after,
           &::before {
@@ -47,7 +61,6 @@
         .swiper-pagination {
           bottom: 3rem;
           @include sm {
-            bottom: 1rem;
           }
           .swiper-pagination-bullet {
             width: 3rem;

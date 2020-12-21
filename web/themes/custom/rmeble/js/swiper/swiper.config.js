@@ -108,6 +108,10 @@
           .find(".realization-swiper-slider")
           .once("rmebleSwiperConfig")
           .each(function () {
+            let mobile = window.matchMedia(
+              "(min-width: 0px) and (max-width: 768px)"
+            );
+
             var mySwiper = new Swiper(".realization-swiper-slider", {
               loop: false,
               slidesPerView: 1,
@@ -121,6 +125,10 @@
                 disableOnInteraction: true,
               },
             });
+            if (mobile.matches) {
+              mySwiper.destroy();
+              init = false;
+            }
           });
       }
 
