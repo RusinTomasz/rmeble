@@ -100,7 +100,7 @@
 {% if nodeCategory %}
 	{%
 	
- 		 set nodeCategory = nodeCategory|striptags
+ 		 set nodeCategory = nodeCategory|striptags|replace({' ': ''})
 	%}
 {% endif %}
 

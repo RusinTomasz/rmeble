@@ -39,6 +39,6 @@
 {% if view_mode == 'full' %}
 	{% elseif view_mode == 'token' %}
 		<div{{attributes.setAttribute('id','taxonomy-term-'~term.id).addClass(classes)}}>
-			<a class="taxonomy-list-isotope-filtr" data-filtr-type="{{ term_name }}" href="#">{{ conLabel|striptags }}</a>
+			<a class="taxonomy-list-isotope-filtr" data-filtr-type="{{ term_name|replace({' ': ''}) }}" href="#">{{ conLabel|striptags }}</a>
 		</div>
 {% endif %}
