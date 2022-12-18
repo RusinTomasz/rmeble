@@ -34,7 +34,7 @@
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
-        "drupal/redirect": "^1.8",
+        "drupal/redirect": "^1.7",
         "drupal/svg_image": "^1.14",
         "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/transliterate_filenames": "^1.4",
